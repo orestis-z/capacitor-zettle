@@ -1,4 +1,10 @@
 export interface ZettlePaymentPlugin {
-  initiatePayment(options: { amount: number; currency: string }): Promise<any>;
   initialize(options: { devMode: boolean }): Promise<any>;
+  initiatePayment(options: { amount: number; currency: string }): Promise<any>;
+  initiateRefund(options: {
+    amount: number;
+    taxAmount: number;
+    receiptNumber: string;
+  }): Promise<any>;
+  showCardReaderSettings(): Promise<any>;
 }

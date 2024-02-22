@@ -57,13 +57,30 @@ allprojects {
 
 <docgen-index>
 
-* [`initiatePayment(...)`](#initiatepayment)
 * [`initialize(...)`](#initialize)
+* [`initiatePayment(...)`](#initiatepayment)
+* [`initiateRefund(...)`](#initiaterefund)
+* [`showCardReaderSettings()`](#showcardreadersettings)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### initialize(...)
+
+```typescript
+initialize(options: { devMode: boolean; }) => Promise<any>
+```
+
+| Param         | Type                               |
+| ------------- | ---------------------------------- |
+| **`options`** | <code>{ devMode: boolean; }</code> |
+
+**Returns:** <code>Promise&lt;any&gt;</code>
+
+--------------------
+
 
 ### initiatePayment(...)
 
@@ -80,15 +97,26 @@ initiatePayment(options: { amount: number; currency: string; }) => Promise<any>
 --------------------
 
 
-### initialize(...)
+### initiateRefund(...)
 
 ```typescript
-initialize(options: { devMode: boolean; }) => Promise<any>
+initiateRefund(options: { amount: number; taxAmount: number; receiptNumber: string; }) => Promise<any>
 ```
 
-| Param         | Type                               |
-| ------------- | ---------------------------------- |
-| **`options`** | <code>{ devMode: boolean; }</code> |
+| Param         | Type                                                                       |
+| ------------- | -------------------------------------------------------------------------- |
+| **`options`** | <code>{ amount: number; taxAmount: number; receiptNumber: string; }</code> |
+
+**Returns:** <code>Promise&lt;any&gt;</code>
+
+--------------------
+
+
+### showCardReaderSettings()
+
+```typescript
+showCardReaderSettings() => Promise<any>
+```
 
 **Returns:** <code>Promise&lt;any&gt;</code>
 

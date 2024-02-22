@@ -33,7 +33,6 @@ import com.zettle.sdk.feature.cardreader.payment.Transaction
 import com.zettle.sdk.feature.cardreader.payment.refunds.CardPaymentPayload
 import com.zettle.sdk.feature.cardreader.payment.refunds.RefundPayload
 import com.zettle.sdk.feature.cardreader.ui.RetrieveResult
-import com.zettle.sdk.feature.cardreader.ui.refunds.RefundResult
 import com.zettle.sdk.features.charge
 import com.zettle.sdk.features.refund
 import com.zettle.sdk.features.retrieve
@@ -44,7 +43,7 @@ import kotlin.math.abs
 
 class ZettleManager(private val activity: Activity) {
 
-    private lateinit var lastPaymentTraceId: MutableLiveData<String?>
+    private var internalTraceId: String = ""
 
     fun initialize(devMode: Boolean) {
         // Optionally place SDK initialization here if not already initialized in Application class
@@ -80,7 +79,7 @@ class ZettleManager(private val activity: Activity) {
     }
 
     fun preparePaymentIntent(amount: Long, currency: String, tippingStyle: TippingStyle = TippingStyle.Default, enableInstallments: Boolean = true): Intent {
-        val internalTraceId = UUID.randomUUID().toString()
+        internalTraceId = UUID.randomUUID().toString()
         val reference = TransactionReference.Builder(internalTraceId)
             // .put("PAYMENT_EXTRA_INFO", "Started from home screen")
             // .paypalPartnerAttributionId("bnCode")
@@ -94,7 +93,21 @@ class ZettleManager(private val activity: Activity) {
         ).charge(context = activity)
     }
 
+    fun prepareRefundIntent(amount: Long, taxAmount: Long?, receiptNumber: String?): Intent {
+        val reference = TransactionReference.Builder(UUID.randomUUID().toString())
+            .build()
+
+        return CardReaderAction.Refund(
+            amount = amount,
+            paymentReferenceId = internalTraceId,
+            refundReference = reference,
+            taxAmount = taxAmount,
+            receiptNumber = receiptNumber
+        ).refund(context = activity)
+    }
+
     companion object {
         const val PAYMENT_REQUEST_CODE = 1001
+        const val REFUND_REQUEST_CODE = 1002
     }
 }
