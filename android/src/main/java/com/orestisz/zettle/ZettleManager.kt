@@ -94,11 +94,6 @@ class ZettleManager(private val activity: Activity) {
         ).charge(context = activity)
     }
 
-    // fun charge(amount: Long, currency: String, tippingStyle: TippingStyle = TippingStyle.Default, enableInstallments: Boolean = true) {
-    //     val paymentIntent = preparePaymentIntent(amount, currency, tippingStyle, enableInstallments)
-    //     activity.startActivityForResult(paymentIntent, PAYMENT_REQUEST_CODE)
-    // }
-
     companion object {
         const val PAYMENT_REQUEST_CODE = 1001
     }

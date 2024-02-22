@@ -68,12 +68,14 @@ allprojects {
 ### initiatePayment(...)
 
 ```typescript
-initiatePayment(options: { amount: number; currency: string; }) => Promise<void>
+initiatePayment(options: { amount: number; currency: string; }) => Promise<any>
 ```
 
 | Param         | Type                                               |
 | ------------- | -------------------------------------------------- |
 | **`options`** | <code>{ amount: number; currency: string; }</code> |
+
+**Returns:** <code>Promise&lt;any&gt;</code>
 
 --------------------
 
@@ -81,12 +83,14 @@ initiatePayment(options: { amount: number; currency: string; }) => Promise<void>
 ### initialize(...)
 
 ```typescript
-initialize(options: { devMode: boolean; }) => Promise<void>
+initialize(options: { devMode: boolean; }) => Promise<any>
 ```
 
 | Param         | Type                               |
 | ------------- | ---------------------------------- |
 | **`options`** | <code>{ devMode: boolean; }</code> |
+
+**Returns:** <code>Promise&lt;any&gt;</code>
 
 --------------------
 
