@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <activity android:name="com.izettle.android.auth.OAuthActivity" android:launchMode="singleTop">
+    <intent-filter>
+      <action android:name="android.intent.action.VIEW" />
+      <category android:name="android.intent.category.DEFAULT" />
+      <category android:name="android.intent.category.BROWSABLE" />
+      <data android:scheme="yourapp" android:host="auth" />
+    </intent-filter>
+  </activity>
 </manifest>
