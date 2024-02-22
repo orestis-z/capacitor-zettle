@@ -88,12 +88,12 @@ class ZettlePaymentPlugin : Plugin() {
                         ret.put("transactionId", payment.payload.transactionId);
                         savedCall.resolve(ret)
                     }
-                    is ZettleResult.Cancelled -> savedCall.reject("Payment cancelled")
-                    is ZettleResult.Failed -> savedCall.reject("Payment failed: ${result.reason.javaClass.simpleName}")
-                    null -> savedCall.reject("Something went wrong")
+                    is ZettleResult.Cancelled -> savedCall.reject("Cancelled")
+                    is ZettleResult.Failed -> savedCall.reject(result.reason.javaClass.simpleName)
+                    null -> savedCall.reject("UnknownError")
                 }
             } else {
-                savedCall.reject("Something went wrong")
+                savedCall.reject("UnknownError")
             }
         }
     }
