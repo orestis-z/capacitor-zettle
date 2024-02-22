@@ -1,9 +1,10 @@
 import { registerPlugin } from '@capacitor/core';
-
 import type { ZettlePaymentPlugin } from './definitions';
 
 const ZettlePayment = registerPlugin<ZettlePaymentPlugin>('ZettlePayment', {
-  web: () => import('./web').then(m => new m.ZettlePaymentWeb()),
+  web: () => {
+    throw new Error('Web SDK not provided by Zettle. More info at https://developer.zettle.com/');
+  },
 });
 
 export * from './definitions';

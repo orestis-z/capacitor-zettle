@@ -1,7 +1,7 @@
 {
   "name": "capacitor-zettle",
   "version": "0.0.1",
-  "description": "The \"ZettlePayment\" plugin integrates iZettle payments into Capacitor apps, enabling card transactions with minimal setup. It offers a straightforward JavaScript API for easy payment processing and management.",
+  "description": "The \"ZettlePayment\" plugin integrates Zettle payments into Capacitor apps, enabling card transactions with minimal setup. It offers a straightforward JavaScript API for easy payment processing and management.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",

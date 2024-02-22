@@ -1,3 +1,9 @@
 export interface ZettlePaymentPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  initiatePayment(options: {
+    amount: number;
+    currency: string;
+  }): Promise<void>;
+  initialize(options: {
+    devMode: boolean;
+  }): Promise<void>;
 }

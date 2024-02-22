@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="client_id"></string>
+  <string name="redirect_url_scheme"></string>
+  <string name="redirect_url_host"></string>
+</resources>
